@@ -1,8 +1,13 @@
+#!/usr/bin/python3
 import sys
 import markdown
 
 
-# This script convert markdown file into html file
+'''
+    This script convert markdown file into html file
+'''
+
+
 def convert_markdown_to_html(input_file, output_file):
     try:
         with open(input_file, 'r') as md_file:
@@ -15,7 +20,9 @@ def convert_markdown_to_html(input_file, output_file):
         sys.exit(1)
 
 
-# This script convert markdown file into html file
+'''
+    This script convert markdown file into html file
+'''
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         sys.stderr.write("Usage: ./markdown2html.py README.md README.html\n")
