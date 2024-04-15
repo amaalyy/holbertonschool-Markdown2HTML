@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 
-''' This script convert a markdown file into html file
-    This script convert a markdown file into html file
-    This script convert a markdown file into html file
-'''
+"""This script convert a markdown file into html file"""
 
 import sys
 import markdown
