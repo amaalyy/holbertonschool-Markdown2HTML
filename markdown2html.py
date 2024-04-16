@@ -1,28 +1,39 @@
-#!/usr/bin/python3
-
-"""This script convert a markdown file into html file"""
-
 import sys
+import os
 import markdown
 
 
 def convert_markdown_to_html(input_file, output_file):
-    """Function to convert md into html"""
-    try:
-        with open(input_file, 'r') as md_file:
-            markdown_content = md_file.read()
-            html_content = markdown.markdown(markdown_content)
-            with open(output_file, 'w') as html_file:
-                html_file.write(html_content)
-    except FileNotFoundError:
-        sys.stderr.write(f"Missing {input_file}\n")
+    # Check if the number of arguments is correct
+    if len(sys.argv) != 3:
+        print(
+            "Usage: ./markdown2html.py <input_file> <output_file>",
+            file=sys.stderr)
         sys.exit(1)
-2
+
+    # Check if the input Markdown file exists
+    if not os.path.exists(input_file):
+        print(f"Missing {input_file}", file=sys.stderr)
+        sys.exit(1)
+
+    # Read Markdown content from input file
+    with open(input_file, 'r') as file:
+        markdown_content = file.read()
+
+    # Convert Markdown to HTML
+    html_content = markdown.markdown(markdown_content)
+
+    # Write HTML content to output file
+    with open(output_file, 'w') as file:
+        file.write(html_content)
+
 
 if __name__ == "__main__":
-    """main function"""
-    if len(sys.argv) < 3:
-        sys.stderr.write("Usage: ./markdown2html.py README.md README.html\n")
+    # Ensure correct usage with two arguments
+    if len(sys.argv) != 3:
+        print(
+            "Usage: ./markdown2html.py <input_file> <output_file>",
+            file=sys.stderr)
         sys.exit(1)
 
     input_file = sys.argv[1]
