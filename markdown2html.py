@@ -7,6 +7,7 @@ import markdown
 
 
 def convert_markdown_to_html(input_file, output_file):
+    """Function to convert md into html"""
     try:
         with open(input_file, 'r') as md_file:
             markdown_content = md_file.read()
@@ -16,9 +17,10 @@ def convert_markdown_to_html(input_file, output_file):
     except FileNotFoundError:
         sys.stderr.write(f"Missing {input_file}\n")
         sys.exit(1)
-
+2
 
 if __name__ == "__main__":
+    """main function"""
     if len(sys.argv) < 3:
         sys.stderr.write("Usage: ./markdown2html.py README.md README.html\n")
         sys.exit(1)
